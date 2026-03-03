@@ -1,0 +1,386 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ─── DARK THEME (default) ─── */
+  :root,
+  [data-theme="dark"] {
+    color-scheme: dark;
+
+    /* OKLCH tokens */
+    --background: 0.08 0 0;
+    --foreground: 0.95 0.01 80;
+    --card: 0.1 0 0;
+    --card-foreground: 0.95 0.01 80;
+    --popover: 0.12 0 0;
+    --popover-foreground: 0.95 0.01 80;
+    --primary: 0.72 0.19 50;
+    --primary-foreground: 0.08 0 0;
+    --secondary: 0.15 0 0;
+    --secondary-foreground: 0.9 0.01 80;
+    --muted: 0.15 0 0;
+    --muted-foreground: 0.55 0.01 260;
+    --accent: 0.72 0.19 50;
+    --accent-foreground: 0.08 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.95 0 0 / 8%;
+    --input: 0.95 0 0 / 10%;
+    --ring: 0.72 0.19 50;
+    --radius: 1rem;
+
+    --chart-1: 0.72 0.19 50;
+    --chart-2: 0.65 0.17 160;
+    --chart-3: 0.6 0.16 260;
+    --chart-4: 0.75 0.17 90;
+    --chart-5: 0.8 0.16 130;
+
+    --sidebar: 0.1 0 0;
+    --sidebar-foreground: 0.95 0.01 80;
+    --sidebar-primary: 0.72 0.19 50;
+    --sidebar-primary-foreground: 0.08 0 0;
+    --sidebar-accent: 0.15 0 0;
+    --sidebar-accent-foreground: 0.9 0.01 80;
+    --sidebar-border: 0.95 0 0 / 8%;
+    --sidebar-ring: 0.72 0.19 50;
+
+    /* SBJ Custom tokens */
+    --sbj-bg: #0A0A0A;
+    --sbj-bg2: #111111;
+    --sbj-bg3: #161616;
+    --sbj-surface: rgba(255, 255, 255, 0.04);
+    --sbj-surface2: rgba(255, 255, 255, 0.07);
+    --sbj-border: rgba(255, 255, 255, 0.08);
+    --sbj-border-accent: rgba(249, 115, 22, 0.3);
+    --sbj-text: #F1F5F9;
+    --sbj-text2: #94A3B8;
+    --sbj-text3: #64748B;
+    --sbj-accent: #F97316;
+    --sbj-accent2: #FB923C;
+    --sbj-accent3: #34D399;
+    --sbj-glow: rgba(249, 115, 22, 0.15);
+    --sbj-gradient: linear-gradient(135deg, #F97316, #FB923C);
+    --sbj-gradient2: linear-gradient(135deg, #FB923C, #34D399);
+  }
+
+  /* ─── LIGHT THEME ─── */
+  [data-theme="light"] {
+    color-scheme: light;
+
+    --background: 0.97 0 0;
+    --foreground: 0.1 0.01 260;
+    --card: 1 0 0;
+    --card-foreground: 0.1 0.01 260;
+    --popover: 1 0 0;
+    --popover-foreground: 0.1 0.01 260;
+    --primary: 0.62 0.19 50;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.94 0.01 80;
+    --secondary-foreground: 0.2 0.01 260;
+    --muted: 0.94 0.01 80;
+    --muted-foreground: 0.45 0.01 260;
+    --accent: 0.62 0.19 50;
+    --accent-foreground: 1 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.1 0 0 / 8%;
+    --input: 0.1 0 0 / 10%;
+    --ring: 0.62 0.19 50;
+    --radius: 1rem;
+
+    --chart-1: 0.62 0.19 50;
+    --chart-2: 0.55 0.17 160;
+    --chart-3: 0.5 0.16 260;
+    --chart-4: 0.65 0.17 90;
+    --chart-5: 0.7 0.16 130;
+
+    --sidebar: 0.96 0 0;
+    --sidebar-foreground: 0.1 0.01 260;
+    --sidebar-primary: 0.62 0.19 50;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.94 0.01 80;
+    --sidebar-accent-foreground: 0.2 0.01 260;
+    --sidebar-border: 0.1 0 0 / 8%;
+    --sidebar-ring: 0.62 0.19 50;
+
+    --sbj-bg: #F8F9FA;
+    --sbj-bg2: #F0F2F5;
+    --sbj-bg3: #FFFFFF;
+    --sbj-surface: rgba(0, 0, 0, 0.04);
+    --sbj-surface2: rgba(0, 0, 0, 0.06);
+    --sbj-border: rgba(0, 0, 0, 0.08);
+    --sbj-border-accent: rgba(234, 88, 12, 0.3);
+    --sbj-text: #0F172A;
+    --sbj-text2: #475569;
+    --sbj-text3: #94A3B8;
+    --sbj-accent: #EA580C;
+    --sbj-accent2: #F97316;
+    --sbj-accent3: #059669;
+    --sbj-glow: rgba(234, 88, 12, 0.1);
+    --sbj-gradient: linear-gradient(135deg, #EA580C, #F97316);
+    --sbj-gradient2: linear-gradient(135deg, #F97316, #059669);
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--sbj-bg);
+  }
+
+  body {
+    background-color: var(--sbj-bg);
+    color: var(--sbj-text);
+    font-family: "Segoe UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.4s, color 0.4s;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--sbj-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--sbj-accent);
+    border-radius: 2px;
+  }
+
+  /* Selection */
+  ::selection {
+    background: var(--sbj-accent);
+    color: #000;
+  }
+}
+
+/* ─── FONT CLASSES ─── */
+.font-display {
+  font-family: "Georgia", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-variation-settings: "wdth" 110;
+}
+
+.font-mono-code {
+  font-family: "Courier New", "Lucida Console", Courier, monospace;
+  letter-spacing: -0.02em;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bgPulse {
+  0%   { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 1;   transform: scale(1.05); }
+}
+
+@keyframes floatAnim {
+  0%   { transform: translateY(0px); }
+  100% { transform: translateY(-12px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.4); }
+}
+
+@keyframes connectorFlow {
+  to { left: 100%; }
+}
+
+@keyframes borderGlow {
+  0%, 100% { box-shadow: 0 0 20px var(--sbj-glow); }
+  50%       { box-shadow: 0 0 40px var(--sbj-glow), 0 0 80px var(--sbj-glow); }
+}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── GRADIENT TEXT ─── */
+.gradient-text {
+  background: var(--sbj-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text2 {
+  background: var(--sbj-gradient2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── ANIMATION DELAYS ─── */
+.anim-d0  { animation: fadeSlideUp 0.8s cubic-bezier(0.22,1,0.36,1) 0s    both; }
+.anim-d1  { animation: fadeSlideUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.1s  both; }
+.anim-d2  { animation: fadeSlideUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.2s  both; }
+.anim-d3  { animation: fadeSlideUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.3s  both; }
+.anim-d4  { animation: fadeSlideUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.4s  both; }
+.anim-d5  { animation: fadeSlideUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.5s  both; }
+.anim-d6  { animation: fadeSlideUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.6s  both; }
+.anim-d7  { animation: fadeSlideUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.7s  both; }
+
+/* ─── FLOAT ANIMATION ─── */
+.float-anim {
+  animation: floatAnim 4s ease-in-out infinite alternate;
+}
+
+/* ─── GLOW CURSOR ─── */
+.glow-cursor {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  transition: left 0.12s linear, top 0.12s linear;
+}
+
+/* ─── CARD GLOW ─── */
+.card-glow-hover {
+  position: relative;
+  overflow: hidden;
+}
+.card-glow-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 0%, var(--sbj-glow), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.card-glow-hover:hover::before {
+  opacity: 1;
+}
+
+/* ─── WORKFLOW CONNECTOR ─── */
+.wf-connector-anim {
+  position: relative;
+  height: 2px;
+  background: var(--sbj-border);
+  flex: 1;
+  overflow: hidden;
+  transition: background 0.5s;
+}
+.wf-connector-anim.active {
+  background: var(--sbj-accent);
+}
+.wf-connector-anim::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -100%;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, transparent, var(--sbj-accent), transparent);
+  animation: connectorFlow 2s linear infinite;
+}
+
+/* ─── SKILL BAR ─── */
+.skill-bar-fill {
+  width: 0;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--sbj-gradient);
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─── PARTICLE CANVAS ─── */
+#particles-canvas {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── SECTION PADDING ─── */
+.section-pad {
+  padding: 120px 40px;
+}
+@media (max-width: 768px) {
+  .section-pad {
+    padding: 80px 20px;
+  }
+}
+
+/* ─── NAV ─── */
+.nav-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ─── TIMELINE ─── */
+.timeline-line {
+  position: absolute;
+  left: 11px;
+  top: 24px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--sbj-accent), var(--sbj-accent2), transparent);
+}
+
+/* ─── FORM INPUTS ─── */
+.sbj-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--sbj-bg);
+  border: 1px solid var(--sbj-border);
+  border-radius: 12px;
+  color: var(--sbj-text);
+  font-family: inherit;
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.sbj-input:focus {
+  border-color: var(--sbj-accent);
+  box-shadow: 0 0 0 3px var(--sbj-glow);
+}
+.sbj-input::placeholder {
+  color: var(--sbj-text3);
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+  .show-mobile { display: flex !important; }
+}
+@media (min-width: 769px) {
+  .hide-desktop { display: none !important; }
+  .show-mobile  { display: none !important; }
+}
+
+/* ─── PREFERS REDUCED MOTION ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
