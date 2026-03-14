@@ -1,7 +1,16 @@
+
 import { Toaster } from "@/components/ui/sonner";
 import { useEffect, useRef, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import AIWorkflowSection from "./components/AIWorkflowSection";
 import AboutSection from "./components/AboutSection";
+import AdminDashboard from "./components/AdminDashboard";
+import AdminLoginModal from "./components/AdminLoginModal";
 import ArtifactsSection from "./components/ArtifactsSection";
 import CaseStudiesSection from "./components/CaseStudiesSection";
 import ContactSection from "./components/ContactSection";
@@ -9,7 +18,9 @@ import ExpertiseSection from "./components/ExpertiseSection";
 import HeroSection from "./components/HeroSection";
 import ImpactSection from "./components/ImpactSection";
 import NavBar from "./components/NavBar";
+import ProtectedRoute from "./components/ProtectedRoute";
 import SkillsSection from "./components/SkillsSection";
+import { AuthProvider, useAuthContext } from "./hooks/AuthContext";
 import { useIncrementVisitorCount } from "./hooks/useQueries";
 
 function getStoredTheme() {
@@ -17,23 +28,18 @@ function getStoredTheme() {
   return localStorage.getItem("sbj-theme") || "dark";
 }
 
-export default function App() {
+function Home() {
   const glowRef = useRef<HTMLDivElement>(null);
-  const { mutate: incrementVisitor } = useIncrementVisitorCount();
   const [theme, setThemeState] = useState<string>(getStoredTheme);
+  const [isAdminLoginOpen, setIsAdminLoginOpen] = useState(false);
+  const { isAuthenticated } = useAuthContext();
+  const navigate = useNavigate();
 
-  // Apply theme to document
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("sbj-theme", theme);
   }, [theme]);
 
-  // Increment visitor count on load
-  useEffect(() => {
-    incrementVisitor();
-  }, [incrementVisitor]);
-
-  // Glow cursor
   useEffect(() => {
     const glow = glowRef.current;
     if (!glow) return;
@@ -45,19 +51,23 @@ export default function App() {
     return () => document.removeEventListener("mousemove", onMouseMove);
   }, []);
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/admin");
+    }
+  }, [isAuthenticated, navigate]);
+
   const toggleTheme = () => {
     setThemeState((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
+  const openAdminLogin = () => setIsAdminLoginOpen(true);
+  const closeAdminLogin = () => setIsAdminLoginOpen(false);
+
   return (
     <>
-      {/* Glow cursor */}
       <div ref={glowRef} className="glow-cursor" aria-hidden="true" />
-
-      {/* Nav */}
       <NavBar theme={theme} toggleTheme={toggleTheme} />
-
-      {/* Main */}
       <main>
         <HeroSection />
         <AboutSection />
@@ -69,8 +79,6 @@ export default function App() {
         <ArtifactsSection />
         <ContactSection />
       </main>
-
-      {/* Footer */}
       <footer
         style={{
           padding: "32px 40px",
@@ -95,12 +103,34 @@ export default function App() {
             color: "var(--sbj-text3)",
           }}
         >
-          {"// Kolkata, India · Open to opportunities"}
+          {"// Kolkata, India · "}
+          <button
+            onClick={openAdminLogin}
+            style={{
+              fontFamily: "inherit",
+              fontSize: "inherit",
+              color: "inherit",
+              background: "none",
+              border: "none",
+              padding: 0,
+              cursor: "pointer",
+              textDecoration: "underline",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.color =
+                "var(--sbj-accent)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.color =
+                "var(--sbj-text3)";
+            }}
+          >
+            Open to opportunities
+          </button>
         </span>
       </footer>
-
+      {isAdminLoginOpen && <AdminLoginModal onClose={closeAdminLogin} />}
       <Toaster position="top-right" richColors />
-
       <style>{`
         @media (max-width: 768px) {
           footer {
@@ -112,3 +142,26 @@ export default function App() {
     </>
   );
 }
+
+function App() {
+  const { mutate: incrementVisitor } = useIncrementVisitorCount();
+
+  useEffect(() => {
+    incrementVisitor();
+  }, [incrementVisitor]);
+
+  return (
+    <Router>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/admin" element={<AdminDashboard />} />
+          </Route>
+        </Routes>
+      </AuthProvider>
+    </Router>
+  );
+}
+
+export default App;
