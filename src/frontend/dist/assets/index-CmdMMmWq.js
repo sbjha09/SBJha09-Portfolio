@@ -18000,7 +18000,141 @@ const AuthProvider = ({ children }) => {
 const useAuthContext = () => {
   return reactExports.useContext(AuthContext);
 };
-const initialCards = [
+const initialHero = {
+  title: "Shanti Bhushan Jha",
+  subtitle: "ERP Business Analyst & Consultant",
+  avatar: "/path/to/avatar.jpg"
+};
+const HeroManager = () => {
+  const [hero, setHero] = reactExports.useState(initialHero);
+  const [isEditing, setIsEditing] = reactExports.useState(false);
+  const handleHeroChange = (field, value) => {
+    setHero({ ...hero, [field]: value });
+  };
+  const handleSaveChanges = () => {
+    console.log("Saving changes:", hero);
+    setIsEditing(false);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "40px", background: "var(--sbj-surface)", borderRadius: "24px", border: "1px solid var(--sbj-border)", padding: "32px" }, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { fontFamily: "'Georgia', serif", fontSize: "24px", fontWeight: 800, color: "var(--sbj-text)" }, children: "Manage Hero Section" }),
+      !isEditing && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(true), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-accent)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Edit" })
+    ] }),
+    isEditing ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Title" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            type: "text",
+            value: hero.title,
+            onChange: (e) => handleHeroChange("title", e.target.value),
+            className: "sbj-input"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Subtitle" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            type: "text",
+            value: hero.subtitle,
+            onChange: (e) => handleHeroChange("subtitle", e.target.value),
+            className: "sbj-input"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Avatar URL" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            type: "text",
+            value: hero.avatar,
+            onChange: (e) => handleHeroChange("avatar", e.target.value),
+            className: "sbj-input"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "32px", display: "flex", justifyContent: "flex-end", gap: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(false), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-surface2)", color: "var(--sbj-text)", fontWeight: 700, fontSize: "15px", border: "1px solid var(--sbj-border)", cursor: "pointer" }, children: "Cancel" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSaveChanges, style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-gradient)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Save Changes" })
+      ] })
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { fontFamily: "'Georgia', serif", fontWeight: 700, fontSize: "18px", marginBottom: "8px", color: "var(--sbj-text)" }, children: hero.title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { fontSize: "14px", color: "var(--sbj-text2)", lineHeight: 1.6 }, children: hero.subtitle })
+    ] })
+  ] });
+};
+const initialAbout = {
+  title: "About Me",
+  description: "This is the about me section.",
+  image: "/path/to/image.jpg"
+};
+const AboutManager = () => {
+  const [about, setAbout] = reactExports.useState(initialAbout);
+  const [isEditing, setIsEditing] = reactExports.useState(false);
+  const handleAboutChange = (field, value) => {
+    setAbout({ ...about, [field]: value });
+  };
+  const handleSaveChanges = () => {
+    console.log("Saving changes:", about);
+    setIsEditing(false);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "40px", background: "var(--sbj-surface)", borderRadius: "24px", border: "1px solid var(--sbj-border)", padding: "32px" }, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { fontFamily: "'Georgia', serif", fontSize: "24px", fontWeight: 800, color: "var(--sbj-text)" }, children: "Manage About" }),
+      !isEditing && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(true), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-accent)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Edit" })
+    ] }),
+    isEditing ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Title" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            type: "text",
+            value: about.title,
+            onChange: (e) => handleAboutChange("title", e.target.value),
+            className: "sbj-input"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Description" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "textarea",
+          {
+            value: about.description,
+            onChange: (e) => handleAboutChange("description", e.target.value),
+            className: "sbj-input",
+            style: { height: "120px", resize: "vertical" }
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Image URL" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            type: "text",
+            value: about.image,
+            onChange: (e) => handleAboutChange("image", e.target.value),
+            className: "sbj-input"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "32px", display: "flex", justifyContent: "flex-end", gap: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(false), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-surface2)", color: "var(--sbj-text)", fontWeight: 700, fontSize: "15px", border: "1px solid var(--sbj-border)", cursor: "pointer" }, children: "Cancel" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSaveChanges, style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-gradient)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Save Changes" })
+      ] })
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { fontFamily: "'Georgia', serif", fontWeight: 700, fontSize: "18px", marginBottom: "8px", color: "var(--sbj-text)" }, children: about.title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { fontSize: "14px", color: "var(--sbj-text2)", lineHeight: 1.6 }, children: about.description })
+    ] })
+  ] });
+};
+const initialCards$1 = [
   {
     icon: "⚙️",
     title: "ERP Functional Design",
@@ -18033,7 +18167,7 @@ const initialCards = [
   }
 ];
 const ExpertiseManager = () => {
-  const [cards2, setCards] = reactExports.useState(initialCards);
+  const [cards2, setCards] = reactExports.useState(initialCards$1);
   const [isEditing, setIsEditing] = reactExports.useState(false);
   const handleCardChange = (index2, field, value) => {
     const newCards = [...cards2];
@@ -18099,6 +18233,433 @@ const ExpertiseManager = () => {
     ] }, card.title)) })
   ] });
 };
+const initialCaseStudies = [
+  {
+    title: "Case Study 1",
+    description: "This is the first case study.",
+    image: "/path/to/image1.jpg"
+  },
+  {
+    title: "Case Study 2",
+    description: "This is the second case study.",
+    image: "/path/to/image2.jpg"
+  }
+];
+const CaseStudiesManager = () => {
+  const [caseStudies2, setCaseStudies] = reactExports.useState(initialCaseStudies);
+  const [isEditing, setIsEditing] = reactExports.useState(false);
+  const handleCaseStudyChange = (index2, field, value) => {
+    const newCaseStudies = [...caseStudies2];
+    newCaseStudies[index2][field] = value;
+    setCaseStudies(newCaseStudies);
+  };
+  const handleSaveChanges = () => {
+    console.log("Saving changes:", caseStudies2);
+    setIsEditing(false);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "40px", background: "var(--sbj-surface)", borderRadius: "24px", border: "1px solid var(--sbj-border)", padding: "32px" }, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { fontFamily: "'Georgia', serif", fontSize: "24px", fontWeight: 800, color: "var(--sbj-text)" }, children: "Manage Case Studies" }),
+      !isEditing && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(true), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-accent)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Edit" })
+    ] }),
+    isEditing ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px" }, children: caseStudies2.map((caseStudy, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { background: "var(--sbj-bg)", borderRadius: "16px", padding: "24px", border: "1px solid var(--sbj-border)" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Title" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "text",
+              value: caseStudy.title,
+              onChange: (e) => handleCaseStudyChange(index2, "title", e.target.value),
+              className: "sbj-input"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Description" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "textarea",
+            {
+              value: caseStudy.description,
+              onChange: (e) => handleCaseStudyChange(index2, "description", e.target.value),
+              className: "sbj-input",
+              style: { height: "120px", resize: "vertical" }
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Image URL" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "text",
+              value: caseStudy.image,
+              onChange: (e) => handleCaseStudyChange(index2, "image", e.target.value),
+              className: "sbj-input"
+            }
+          )
+        ] })
+      ] }, index2)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "32px", display: "flex", justifyContent: "flex-end", gap: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(false), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-surface2)", color: "var(--sbj-text)", fontWeight: 700, fontSize: "15px", border: "1px solid var(--sbj-border)", cursor: "pointer" }, children: "Cancel" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSaveChanges, style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-gradient)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Save Changes" })
+      ] })
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px" }, children: caseStudies2.map((caseStudy) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { background: "var(--sbj-bg)", borderRadius: "16px", padding: "24px", border: "1px solid var(--sbj-border)" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { fontFamily: "'Georgia', serif", fontWeight: 700, fontSize: "18px", marginBottom: "8px", color: "var(--sbj-text)" }, children: caseStudy.title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { fontSize: "14px", color: "var(--sbj-text2)", lineHeight: 1.6 }, children: caseStudy.description })
+    ] }, caseStudy.title)) })
+  ] });
+};
+const initialAIWorkflow = {
+  title: "AI Workflow",
+  description: "This is the AI workflow section.",
+  steps: [
+    {
+      title: "Step 1",
+      description: "This is the first step of the AI workflow."
+    },
+    {
+      title: "Step 2",
+      description: "This is the second step of the AI workflow."
+    }
+  ]
+};
+const AIWorkflowManager = () => {
+  const [aiWorkflow, setAIWorkflow] = reactExports.useState(initialAIWorkflow);
+  const [isEditing, setIsEditing] = reactExports.useState(false);
+  const handleAIWorkflowChange = (field, value) => {
+    setAIWorkflow({ ...aiWorkflow, [field]: value });
+  };
+  const handleStepChange = (index2, field, value) => {
+    const newSteps = [...aiWorkflow.steps];
+    newSteps[index2][field] = value;
+    setAIWorkflow({ ...aiWorkflow, steps: newSteps });
+  };
+  const handleSaveChanges = () => {
+    console.log("Saving changes:", aiWorkflow);
+    setIsEditing(false);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "40px", background: "var(--sbj-surface)", borderRadius: "24px", border: "1px solid var(--sbj-border)", padding: "32px" }, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { fontFamily: "'Georgia', serif", fontSize: "24px", fontWeight: 800, color: "var(--sbj-text)" }, children: "Manage AI Workflow" }),
+      !isEditing && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(true), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-accent)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Edit" })
+    ] }),
+    isEditing ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Title" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            type: "text",
+            value: aiWorkflow.title,
+            onChange: (e) => handleAIWorkflowChange("title", e.target.value),
+            className: "sbj-input"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Description" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "textarea",
+          {
+            value: aiWorkflow.description,
+            onChange: (e) => handleAIWorkflowChange("description", e.target.value),
+            className: "sbj-input",
+            style: { height: "120px", resize: "vertical" }
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { fontFamily: "'Georgia', serif", fontSize: "20px", fontWeight: 800, color: "var(--sbj-text)", marginTop: "32px", marginBottom: "16px" }, children: "Steps" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px" }, children: aiWorkflow.steps.map((step, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { background: "var(--sbj-bg)", borderRadius: "16px", padding: "24px", border: "1px solid var(--sbj-border)" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Step Title" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "text",
+              value: step.title,
+              onChange: (e) => handleStepChange(index2, "title", e.target.value),
+              className: "sbj-input"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Step Description" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "textarea",
+            {
+              value: step.description,
+              onChange: (e) => handleStepChange(index2, "description", e.target.value),
+              className: "sbj-input",
+              style: { height: "120px", resize: "vertical" }
+            }
+          )
+        ] })
+      ] }, index2)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "32px", display: "flex", justifyContent: "flex-end", gap: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(false), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-surface2)", color: "var(--sbj-text)", fontWeight: 700, fontSize: "15px", border: "1px solid var(--sbj-border)", cursor: "pointer" }, children: "Cancel" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSaveChanges, style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-gradient)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Save Changes" })
+      ] })
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { fontFamily: "'Georgia', serif", fontWeight: 700, fontSize: "18px", marginBottom: "8px", color: "var(--sbj-text)" }, children: aiWorkflow.title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { fontSize: "14px", color: "var(--sbj-text2)", lineHeight: 1.6 }, children: aiWorkflow.description }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px", marginTop: "32px" }, children: aiWorkflow.steps.map((step) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { background: "var(--sbj-bg)", borderRadius: "16px", padding: "24px", border: "1px solid var(--sbj-border)" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { style: { fontFamily: "'Georgia', serif", fontWeight: 700, fontSize: "16px", marginBottom: "8px", color: "var(--sbj-text)" }, children: step.title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { fontSize: "14px", color: "var(--sbj-text2)", lineHeight: 1.6 }, children: step.description })
+      ] }, step.title)) })
+    ] })
+  ] });
+};
+const initialCards = [
+  {
+    icon: "💻",
+    title: "React",
+    desc: "Building modern, scalable, and maintainable user interfaces for web applications."
+  },
+  {
+    icon: "⚙️",
+    title: "Node.js",
+    desc: "Developing efficient and scalable server-side applications and APIs."
+  },
+  {
+    icon: "📄",
+    title: "TypeScript",
+    desc: "Enhancing code quality and maintainability with static types."
+  },
+  {
+    icon: "🎨",
+    title: "Tailwind CSS",
+    desc: "Rapidly building custom designs with a utility-first CSS framework."
+  }
+];
+const SkillsManager = () => {
+  const [cards2, setCards] = reactExports.useState(initialCards);
+  const [isEditing, setIsEditing] = reactExports.useState(false);
+  const handleCardChange = (index2, field, value) => {
+    const newCards = [...cards2];
+    newCards[index2][field] = value;
+    setCards(newCards);
+  };
+  const handleSaveChanges = () => {
+    console.log("Saving changes:", cards2);
+    setIsEditing(false);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "40px", background: "var(--sbj-surface)", borderRadius: "24px", border: "1px solid var(--sbj-border)", padding: "32px" }, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { fontFamily: "'Georgia', serif", fontSize: "24px", fontWeight: 800, color: "var(--sbj-text)" }, children: "Manage Skills" }),
+      !isEditing && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(true), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-accent)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Edit" })
+    ] }),
+    isEditing ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px" }, children: cards2.map((card, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { background: "var(--sbj-bg)", borderRadius: "16px", padding: "24px", border: "1px solid var(--sbj-border)" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Icon" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "text",
+              value: card.icon,
+              onChange: (e) => handleCardChange(index2, "icon", e.target.value),
+              className: "sbj-input"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Title" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "text",
+              value: card.title,
+              onChange: (e) => handleCardChange(index2, "title", e.target.value),
+              className: "sbj-input"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Description" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "textarea",
+            {
+              value: card.desc,
+              onChange: (e) => handleCardChange(index2, "desc", e.target.value),
+              className: "sbj-input",
+              style: { height: "120px", resize: "vertical" }
+            }
+          )
+        ] })
+      ] }, index2)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "32px", display: "flex", justifyContent: "flex-end", gap: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(false), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-surface2)", color: "var(--sbj-text)", fontWeight: 700, fontSize: "15px", border: "1px solid var(--sbj-border)", cursor: "pointer" }, children: "Cancel" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSaveChanges, style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-gradient)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Save Changes" })
+      ] })
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px" }, children: cards2.map((card) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { background: "var(--sbj-bg)", borderRadius: "16px", padding: "24px", border: "1px solid var(--sbj-border)" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { fontSize: "22px", marginBottom: "16px" }, children: card.icon }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { fontFamily: "'Georgia', serif", fontWeight: 700, fontSize: "18px", marginBottom: "8px", color: "var(--sbj-text)" }, children: card.title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { fontSize: "14px", color: "var(--sbj-text2)", lineHeight: 1.6 }, children: card.desc })
+    ] }, card.title)) })
+  ] });
+};
+const initialImpact = {
+  title: "Impact",
+  description: "This is the impact section.",
+  metrics: [
+    {
+      value: "40%",
+      label: "Metric 1"
+    },
+    {
+      value: "60%",
+      label: "Metric 2"
+    }
+  ]
+};
+const ImpactManager = () => {
+  const [impact, setImpact] = reactExports.useState(initialImpact);
+  const [isEditing, setIsEditing] = reactExports.useState(false);
+  const handleImpactChange = (field, value) => {
+    setImpact({ ...impact, [field]: value });
+  };
+  const handleMetricChange = (index2, field, value) => {
+    const newMetrics = [...impact.metrics];
+    newMetrics[index2][field] = value;
+    setImpact({ ...impact, metrics: newMetrics });
+  };
+  const handleSaveChanges = () => {
+    console.log("Saving changes:", impact);
+    setIsEditing(false);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "40px", background: "var(--sbj-surface)", borderRadius: "24px", border: "1px solid var(--sbj-border)", padding: "32px" }, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { fontFamily: "'Georgia', serif", fontSize: "24px", fontWeight: 800, color: "var(--sbj-text)" }, children: "Manage Impact" }),
+      !isEditing && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(true), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-accent)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Edit" })
+    ] }),
+    isEditing ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Title" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            type: "text",
+            value: impact.title,
+            onChange: (e) => handleImpactChange("title", e.target.value),
+            className: "sbj-input"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Description" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "textarea",
+          {
+            value: impact.description,
+            onChange: (e) => handleImpactChange("description", e.target.value),
+            className: "sbj-input",
+            style: { height: "120px", resize: "vertical" }
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { fontFamily: "'Georgia', serif", fontSize: "20px", fontWeight: 800, color: "var(--sbj-text)", marginTop: "32px", marginBottom: "16px" }, children: "Metrics" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px" }, children: impact.metrics.map((metric, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { background: "var(--sbj-bg)", borderRadius: "16px", padding: "24px", border: "1px solid var(--sbj-border)" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Value" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "text",
+              value: metric.value,
+              onChange: (e) => handleMetricChange(index2, "value", e.target.value),
+              className: "sbj-input"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Label" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "text",
+              value: metric.label,
+              onChange: (e) => handleMetricChange(index2, "label", e.target.value),
+              className: "sbj-input"
+            }
+          )
+        ] })
+      ] }, index2)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "32px", display: "flex", justifyContent: "flex-end", gap: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(false), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-surface2)", color: "var(--sbj-text)", fontWeight: 700, fontSize: "15px", border: "1px solid var(--sbj-border)", cursor: "pointer" }, children: "Cancel" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSaveChanges, style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-gradient)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Save Changes" })
+      ] })
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { fontFamily: "'Georgia', serif", fontWeight: 700, fontSize: "18px", marginBottom: "8px", color: "var(--sbj-text)" }, children: impact.title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { fontSize: "14px", color: "var(--sbj-text2)", lineHeight: 1.6 }, children: impact.description }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px", marginTop: "32px" }, children: impact.metrics.map((metric) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { background: "var(--sbj-bg)", borderRadius: "16px", padding: "24px", border: "1px solid var(--sbj-border)" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { fontSize: "32px", fontWeight: 800, color: "var(--sbj-accent)" }, children: metric.value }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { fontSize: "14px", color: "var(--sbj-text2)", marginTop: "8px" }, children: metric.label })
+      ] }, metric.label)) })
+    ] })
+  ] });
+};
+const initialContact = {
+  email: "shantibhushanjha@gmail.com",
+  phone: "+91 9999999999"
+};
+const ContactManager = () => {
+  const [contact, setContact] = reactExports.useState(initialContact);
+  const [isEditing, setIsEditing] = reactExports.useState(false);
+  const handleContactChange = (field, value) => {
+    setContact({ ...contact, [field]: value });
+  };
+  const handleSaveChanges = () => {
+    console.log("Saving changes:", contact);
+    setIsEditing(false);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "40px", background: "var(--sbj-surface)", borderRadius: "24px", border: "1px solid var(--sbj-border)", padding: "32px" }, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { fontFamily: "'Georgia', serif", fontSize: "24px", fontWeight: 800, color: "var(--sbj-text)" }, children: "Manage Contact" }),
+      !isEditing && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(true), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-accent)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Edit" })
+    ] }),
+    isEditing ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Email" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            type: "text",
+            value: contact.email,
+            onChange: (e) => handleContactChange("email", e.target.value),
+            className: "sbj-input"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginBottom: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontSize: "13px", color: "var(--sbj-text2)", display: "block", marginBottom: "8px" }, children: "Phone" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            type: "text",
+            value: contact.phone,
+            onChange: (e) => handleContactChange("phone", e.target.value),
+            className: "sbj-input"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "32px", display: "flex", justifyContent: "flex-end", gap: "16px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setIsEditing(false), style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-surface2)", color: "var(--sbj-text)", fontWeight: 700, fontSize: "15px", border: "1px solid var(--sbj-border)", cursor: "pointer" }, children: "Cancel" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSaveChanges, style: { padding: "10px 20px", borderRadius: "50px", background: "var(--sbj-gradient)", color: "#fff", fontWeight: 700, fontSize: "15px", border: "none", cursor: "pointer" }, children: "Save Changes" })
+      ] })
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { fontSize: "14px", color: "var(--sbj-text2)", lineHeight: 1.6 }, children: [
+        "Email: ",
+        contact.email
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { fontSize: "14px", color: "var(--sbj-text2)", lineHeight: 1.6 }, children: [
+        "Phone: ",
+        contact.phone
+      ] })
+    ] })
+  ] });
+};
 const AdminDashboard = () => {
   const { logout } = useAuthContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { padding: "40px", color: "var(--sbj-text)" }, children: [
@@ -18123,7 +18684,14 @@ const AdminDashboard = () => {
       )
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { marginBottom: "40px", fontSize: "17px", color: "var(--sbj-text2)" }, children: "Welcome to the admin dashboard. Here you will be able to manage the content of your website." }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(ExpertiseManager, {})
+    /* @__PURE__ */ jsxRuntimeExports.jsx(HeroManager, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AboutManager, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ExpertiseManager, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(CaseStudiesManager, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AIWorkflowManager, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(SkillsManager, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ImpactManager, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ContactManager, {})
   ] });
 };
 const AdminLoginModal = ({ onClose }) => {
