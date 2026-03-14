@@ -2,6 +2,7 @@
 import React from 'react';
 import { useAuthContext } from '../hooks/AuthContext';
 import ExpertiseManager from './ExpertiseManager';
+import SkillsManager from './SkillsManager';
 
 const AdminDashboard = () => {
   const { logout } = useAuthContext();
@@ -28,6 +29,7 @@ const AdminDashboard = () => {
       </div>
       <p style={{ marginBottom: '40px', fontSize: '17px', color: 'var(--sbj-text2)' }}>Welcome to the admin dashboard. Here you will be able to manage the content of your website.</p>
       <ExpertiseManager />
+      <SkillsManager />
     </div>
   );
 };
