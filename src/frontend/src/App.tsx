@@ -97,27 +97,6 @@ export default function App() {
         >
           {"// Kolkata, India · Open to opportunities"}
         </span>
-        <a
-          href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            color: "var(--sbj-text3)",
-            textDecoration: "none",
-            fontSize: "12px",
-            transition: "color 0.2s",
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.color =
-              "var(--sbj-accent)";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.color =
-              "var(--sbj-text3)";
-          }}
-        >
-          Built with ❤ using caffeine.ai
-        </a>
       </footer>
 
       <Toaster position="top-right" richColors />

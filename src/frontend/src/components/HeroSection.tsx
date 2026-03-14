@@ -465,7 +465,7 @@ export default function HeroSection() {
             }}
           >
             <img
-              src="/assets/generated/sbj-avatar.dim_500x600.png"
+              src="/assets/generated/sbjha09.png"
               alt="Shanti Bhushan Jha"
               style={{
                 width: "100%",
